@@ -1,0 +1,196 @@
+/* =========================================
+   1. RESET BÁSICO (Para quitar márgenes por defecto)
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Serif 4', serif;
+  color: #222222;
+  background-color: #ffffff;
+}
+
+/* =========================================
+   2. HEADER FIJO EN LA PARTE SUPERIOR
+   ========================================= */
+.header {
+  position: fixed;       /* Queda fijo aunque hagas scroll */
+  top: 0;
+  left: 0;
+  width: 100%;           /* Ocupa todo el ancho */
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.header-contenido {
+  max-width: 900px;
+  margin: 0 auto;        /* Centra el contenido en pantalla */
+  padding: 15px 20px;
+  
+  /* Flexbox para separar logo a la izquierda y menú a la derecha */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Perfil (Avatar + Nombre) */
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: 10px;             /* Espacio entre la foto y el texto */
+}
+
+.foto-perfil {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;    /* Hace la foto totalmente redonda */
+  object-fit: cover;
+}
+
+.nombre-perfil {
+  font-family: 'Newsreader', serif;
+  font-size: 18px;
+}
+
+/* Menú de enlaces */
+.menu {
+  display: flex;
+  gap: 15px;             /* Espacio entre cada enlace */
+}
+
+.enlace {
+  text-decoration: none; /* Quita el subrayado azul por defecto */
+  font-size: 13px;
+}
+
+/* Colores específicos de los enlaces */
+.enlace-rojo { color: #d05377; }
+.enlace-verde { color: #879435; }
+.enlace-azul { color: #3a528e; }
+
+
+/* =========================================
+   3. CONTENEDOR PRINCIPAL
+   ========================================= */
+.contenedor {
+  max-width: 900px;
+  margin: 0 auto;
+  /* El padding-top de 80px evita que el header fijo tape el texto */
+  padding: 85px 20px 60px 20px;
+}
+
+/* Texto introductorio */
+.bio p {
+  font-family: 'Source Serif 4', serif;
+  font-size: 28px;
+  line-height: 1.4;
+  color: #333333;
+  margin-bottom: 40px;
+}
+
+
+/* =========================================
+   4. TARJETAS DE PROYECTOS
+   ========================================= */
+.tarjeta-proyecto {
+  display: flex;
+  justify-content: space-between; /* Texto a un lado, imagen al otro */
+  align-items: flex-start;
+  padding: 40px 0;
+  border-top: 1px solid #e5e5e5;  /* Línea gris superior */
+}
+
+/* Columna izquierda: Información */
+.info-proyecto {
+  flex: 1;                       /* Ocupa el espacio disponible a la izquierda */
+  padding-right: 30px;
+}
+
+.categoria {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.titulo {
+  font-family: 'Source Serif 4', serif;
+  font-size: 28px;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+/* Botón Explore */
+.boton-explore {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+/* Columna derecha: Imagen */
+.imagen-proyecto {
+  width: 320px;                  /* Tamaño fijo para la imagen */
+  height: 320px;
+}
+
+.imagen-proyecto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* Hace que la foto encaje cuadrada sin deformarse */
+  border-radius: 4px;            /* Esquinas apenas redondeadas */
+}
+
+
+/* =========================================
+   5. COLORES DE CADA PROYECTO
+   ========================================= */
+
+/* Proyecto 1: Azul */
+.cat-azul, .tit-azul { color: #3d5a80; }
+.btn-azul { 
+  color: #3d5a80; 
+  border: 1px solid #3d5a80; 
+}
+
+/* Proyecto 2: Morado */
+.cat-morada, .tit-morado { color: #9d4edd; }
+.btn-morado { 
+  color: #9d4edd; 
+  border: 1px solid #9d4edd; 
+}
+
+/* Proyecto 3: Oliva */
+.cat-oliva, .tit-oliva { color: #83854c; }
+.btn-oliva { 
+  color: #83854c; 
+  border: 1px solid #83854c; 
+}
+
+
+/* =========================================
+   6. RESPONSIVE BÁSICO (Para celulares)
+   ========================================= */
+@media (max-width: 600px) {
+  .bio p {
+    font-size: 20px;
+  }
+
+  /* Cambia la tarjeta a vertical en pantallas pequeñas */
+  .tarjeta-proyecto {
+    flex-direction: column-reverse; /* Pone la imagen arriba y el texto abajo */
+    gap: 20px;
+  }
+
+  .imagen-proyecto {
+    width: 100%;
+    height: 250px;
+  }
+
+  .info-proyecto {
+    padding-right: 0;
+  }
+}
